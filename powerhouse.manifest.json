@@ -1,0 +1,27 @@
+{
+    "name": "RDB Processor Specifications",
+    "description": "Read database model processor specifications document model that allows a user can define the rdb specs and respective graphql queries that can be used from the model. ",
+    "category": "Engineering",
+    "publisher": {
+        "name": "Powerhouse",
+        "url": "https://powerhouse.inc/"
+    },
+    "documentModels": [
+        {
+            "id": "powerhouse/rdb-processor-specification",
+            "name": "RdbProcessorSpecification"
+        }
+    ],
+    "editors": [
+        {
+            "id": "rdb-processor-specification-editor",
+            "name": "RdbProcessorSpecificationEditor",
+            "documentTypes": [
+                "powerhouse/rdb-processor-specification"
+            ]
+        }
+    ],
+    "apps": [],
+    "subgraphs": [],
+    "importScripts": []
+}

@@ -1,0 +1,175 @@
+scalar Amount_Tokens
+scalar EthereumAddress
+scalar Amount_Percentage
+scalar EmailAddress
+scalar Date
+scalar DateTime
+scalar URL
+scalar Amount_Money
+scalar OLabel
+scalar Currency
+scalar PHID
+scalar OID
+scalar Amount_Fiat
+scalar Amount_Currency
+scalar Amount_Crypto
+scalar Amount
+scalar Upload
+type RdbProcessorSpecificationState {
+  name: String
+  description: String
+  querySpecifications: [QuerySpecification!]!
+  rdbSpecification: [RdbTable!]!
+}
+
+type QuerySpecification {
+  id: OID!
+  name: String
+  querySchema: String
+  filter: [QueryFilterParam!]!
+  queryExample: String
+}
+
+type QueryFilterParam {
+  id: OID!
+  name: String
+  type: String
+  optional: Boolean!
+}
+
+type RdbTable {
+  id: OID!
+  name: String
+  columns: [RdbColumn!]!
+}
+
+type RdbColumn {
+  id: OID!
+  name: String
+  type: RdbColumnType!
+  description: String
+  sourceDocModel: String
+  sourceProperty: String
+  primaryKey: Boolean!
+}
+
+enum RdbColumnType {
+  String
+  Int
+  Float
+  Boolean
+  Date
+  DateTime
+  Text
+}
+
+
+
+
+# specification_metadata
+
+input SetSpecInput {
+  name: String
+  description: String
+}
+
+# query_specification
+
+input AddQuerySpecificationInput {
+  id: OID!
+  querySchema: String
+  queryExample: String
+}
+
+input UpdateQuerySchemaInput {
+  id: OID!
+  querySchema: String
+}
+
+input UpdateQueryExampleInput {
+  id: OID!
+  queryExample: String
+}
+
+input DeleteQuerySpecificationInput {
+  id: OID!
+}
+
+input AddQueryFilterParamInput {
+  querySpecId: OID!
+  id: OID!
+  name: String
+  type: String
+  optional: Boolean!
+}
+
+input UpdateFilterParamInput {
+  querySpecId: OID!
+  id: OID!
+  name: String
+  type: String
+  optional: Boolean
+}
+
+input DeleteFilterParamInput {
+  querySpecId: OID!
+  id: OID!
+}
+
+input SetQuerySpecNameInput {
+  querySpecId: OID!
+  name: String
+}
+
+# rdb_specification
+
+input AddRdbTableInput {
+  id: OID!
+  name: String
+}
+
+input UpdateTableNameInput {
+  id: OID!
+  name: String
+}
+
+input DeleteRdbTableInput {
+  id: OID!
+}
+
+input AddRdbColumnInput {
+  tableId: OID!
+  id: OID!
+  name: String
+  type: RdbColumnType!
+  description: String
+  sourceDocModel: String
+  sourceProperty: String
+  primaryKey: Boolean!
+}
+
+input UpdateRdbColumnInput {
+  tableId: OID!
+  id: OID!
+  name: String
+  type: RdbColumnTypeInput
+  description: String
+  sourceDocModel: String
+  sourceProperty: String
+  primaryKey: Boolean
+}
+
+enum RdbColumnTypeInput {
+  String
+  Int
+  Float
+  Boolean
+  Date
+  DateTime
+  Text
+}
+
+input DeleteRdbColumnInput {
+  tableId: OID!
+  id: OID!
+}

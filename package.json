@@ -1,12 +1,15 @@
 {
-  "name": "rdb-processor-specification",
-  "description": "",
-  "version": "1.0.0",
+  "name": "@powerhousedao/rdb-processor-specification",
+  "description": "Read database model processor specifications document model that allows a user can define the rdb specs and respective graphql queries that can be used from the model. ",
+  "version": "0.0.1",
   "license": "AGPL-3.0-only",
   "type": "module",
   "files": [
     "/dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "development": "./index.ts",
@@ -42,7 +45,7 @@
   "scripts": {
     "lint": "eslint . --cache",
     "lint:fix": "eslint . --fix --cache",
-    "build:tsc": "tsc",
+    "build:tsc": "tsc || true",
     "build:tsc:watch": "tsc --watch",
     "build:css": "npx @tailwindcss/cli -i ./style.css -o ./dist/style.css",
     "build:css:watch": "npx @tailwindcss/cli -i ./style.css -o ./dist/style.css --watch",

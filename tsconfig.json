@@ -15,6 +15,9 @@
     "sourceMap": false,
     "declaration": true,
     "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true,
+    "noEmitOnError": false,
 
     // Stricter Typechecking Options
     // "noUncheckedIndexedAccess": true,
@@ -38,6 +41,17 @@
     "skipLibCheck": true,
   },
   "files": [ "./powerhouse.manifest.json", "./vite.config.ts", "./vitest.config.ts"],
-  "include": ["**/*",],
-  "exclude": ["dist", "node_modules", ".ph", "vitest.config.ts"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "**/node_modules/**",
+    "**/node_modules",
+    "**/ox/node_modules/**",
+    ".ph",
+    "vitest.config.ts"
+  ],
 }
